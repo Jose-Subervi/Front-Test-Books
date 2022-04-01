@@ -1,0 +1,43 @@
+<div class="container pt-4">
+  <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+          <div class="card text-center">
+              <div class="card-body">
+                   <h3>{{ titulo }}
+                   <!--   <div *ngIf="loading" class="spinner-border float-right" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>-->
+                  </h3>
+                  <div *ngIf="!loading" class="spinner-border text-dark mx-auto" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <span *ngIf="submitted && createBook.invalid" class="badge bg-danger">DEBE RELLENAR TODOS LOS CAMPOS</span>
+                  <span *ngIf="submitted && createBook.valid" class="badge bg-success">EL LIBRO SE HA AGREGADO CON EXITO</span>
+                  <form class="mt-4" [formGroup]="createBook" (ngSubmit)="agregarBook()">
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control form-control-lg" formControlName="titulo"
+                                  placeholder="Titulo">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control form-control-lg" formControlName="descripcion"
+                                  placeholder="Descripción">
+                          </div>
+                      </div>
+                      <input type="number" class="form-control form-control-lg mt-3" formControlName="pageCount"
+                          placeholder="Page Count">
+                      <input type="text" class="form-control form-control-lg mt-3" formControlName="excerpt"
+                          placeholder="Excerpt">
+                      <input type="date" class="form-control form-control-lg mt-3" formControlName="publishDate"
+                          placeholder="Fecha de publicación">
+                      <div class="mt-3">
+                          <button type="text" class="btn btn-secondary btn-lg me-3"
+                              routerLink="/list-books">Volver</button>
+                          <button type="submit" class="btn btn-success btn-lg">Agregar</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

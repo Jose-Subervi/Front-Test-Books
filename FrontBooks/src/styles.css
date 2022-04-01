@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
+
+body {
+  background: #c31432;
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);
+  background: linear-gradient(to right, #240b36, #c31432);
+
+}
+
+.title {
+  font-family: 'BIZ UDPMincho', serif;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}

@@ -1,0 +1,33 @@
+<table class="table table-striped mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Page</th>
+      <th scope="col">Excer</th>
+      <th scope="col">Fecha de publicación</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listTable | paginate: { itemsPerPage: 5, currentPage: pages }; let i = index ">
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.description.slice(0,50)}}</td>
+      <td>{{item.pageCount}}</td>
+      <td>{{item.excerpt.slice(0,50)}}</td>
+      <td>{{item.publishDate}}</td>
+      <td>
+        <i class="fa fa-list fa-lg text-warning me-2 mb-3" [routerLink]="['/detail-books/', item.id]"></i>
+        <i class="fa-solid fa-pen-to-square fa-lg text-info me-2" [routerLink]="['/edit-books/', item.id]"></i>
+        <i class="fa-solid fa-trash fa-lg text-danger" (click)="deleteBook(i + 1)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="div">
+  <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+</div>
+

@@ -1,0 +1,27 @@
+<div class="container pt-4">
+  <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+          <div class="card text-center">
+              <div class="card-body">
+                  <h3>{{ titulo }}</h3>
+                  <hr>
+                  <div *ngIf="!loading" class="spinner-border text-dark mx-auto" role="status">
+                    <h3 class="visually-hidden">Loading...</h3>
+                  </div>
+                  <div class="mt-3">
+                    <h4>Titulo:</h4> {{listData.title}}
+                    <h4>Descripción:</h4> {{listData.description.slice(0,100)}}
+                    <h4>Páginas:</h4> {{listData.pageCount}}
+                    <h4>Excerpt:</h4> {{listData.excerpt.slice(0,100)}}
+                    <h4>Fecha de publicación:</h4> {{listData.publishDate}}
+                  </div>
+
+              </div>
+              <div class="mt-3">
+                <button type="text" class="btn btn-secondary btn-lg me-3 "
+                    routerLink="/list-books">Volver</button>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
